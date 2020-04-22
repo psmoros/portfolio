@@ -1,28 +1,25 @@
 <template>
   <!-- Component -->
-  <div class="row">
+  <div class="row work-item">
     <!-- Title  -->
     <div class="row">
-      <p>WORK — N°001 : ROOTNODE</p>
+      <p>Work — N°002 : rootnode</p>
     </div>
     <!-- Body  -->
-    <div class="row work-item-row">
+    <div class="row">
       <!-- Carousel -->
       <div class="col-xl-6">
         <carousel
-          class="carousel"
           :per-page="1"
-          v-model="work1Current"
+          v-model="index"
           :paginationEnabled="enable"
           :paginationActiveColor="'#FFFFFF'"
           :paginationColor="'rgba(255,255,255,0.3)'"
         >
           <slide>
-            <div class="embed-responsive embed-responsive-16by9">
-              <video class="d-block w-100" loop controls>
-                <source src="../../../assets/work/rootnode/promo-mini.mp4" type="video/mp4">Your browser does not support the video tag.
-              </video>
-            </div>
+            <video class="d-block w-100" loop controls>
+              <source src="../../../assets/work/rootnode/promo-mini.mp4" type="video/mp4">Your browser does not support the video tag.
+            </video>
           </slide>
 
           <slide>
@@ -47,13 +44,13 @@
         </carousel>
       </div>
       <!-- Description -->
-      <div class="col-xl-6 fill-height-or-more description d-none d-xl-block">
+      <div class="col-xl-6 description d-none d-xl-block">
         <div class="row">
           <div class="col">
             <p class="years">2017 – 2019</p>
             <p>
-              INDUSTRY
-              <br>SOFTWARE DEVELOPMENT
+              Industry
+              <br>Software Development
             </p>
           </div>
         </div>
@@ -61,18 +58,21 @@
           <div class="col">
             <p>
               ROLE
-              <br>FOUNDER & CEO
+              <br>Owner : Sales, Operations, Marketing, Business Development, Software Architecture, Design
             </p>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <p>
-              SLIDE CAPTION
+              SLIDE DESCRIPTION
               <br>
               <transition name="fade" mode="out-in">
-                <p key="0" v-if="work1Current==0">PROMOTIONAL I MADE</p>
-                <p key="1" v-if="work1Current==1">EXPERIENCE</p>
+                <p key="0" v-if="index==0">Promotional I made with AE</p>
+                <p key="1" v-if="index==1">Our experience website</p>
+                <p key="2" v-if="index== 2">Early team</p>
+                <p key="3" v-if="index==3">Pitch deck</p>
+                <p key="4" v-if="index==4">A Rated Visa Sponsor</p>
               </transition>
             </p>
           </div>
@@ -82,52 +82,56 @@
           <div class="col">
             <div class="launch-project">
               <transition name="fade" mode="out-in">
-                <p class="no-bottom-margin" key="0" v-if="work1Current==0">PROMOTIONAL I MADE</p>
-                <p class="no-bottom-margin" key="1" v-if="work1Current==1">EXPERIENCE</p>
+                <p class="no-bottom-margin" key="0" v-if="index==0">Launch website</p>
+                <p class="no-bottom-margin" key="1" v-if="index==1">Launch experience website</p>
+                <p class="no-bottom-margin" key="3" v-if="index==3">Download Deck</p>
               </transition>
             </div>
           </div>
         </div>
       </div>
+      <!-- Mobile -->
       <div class="col description-mobile d-xl-none">
         <div class="row">
-          <div class="col">
+          <div class="mobile-col col">
             <p class="years">2017 – 2019</p>
             <p>
-              INDUSTRY
-              <br>SOFTWARE DEVELOPMENT
+              Industry
+              <br>Software Development
             </p>
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="mobile-col col">
             <p>
               ROLE
-              <br>FOUNDER & CEO
+              <br>Owner : Sales, Operations, Marketing, Business Development, Software Architecture, Design
             </p>
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="mobile-col col">
             <p>
-              SLIDE CAPTION
+              SLIDE DESCRIPTION
               <br>
               <transition name="fade" mode="out-in">
-                <p key="0" v-if="work1Current==0">PROMOTIONAL I MADE</p>
-                <p key="1" v-if="work1Current==1">EXPERIENCE</p>
+                <p key="0" v-if="index==0">Promotional I made with AE</p>
+                <p key="1" v-if="index==1">Our experience website</p>
+                <p key="2" v-if="index== 2">Early team</p>
+                <p key="3" v-if="index==3">Pitch deck</p>
+                <p key="4" v-if="index==4">A Rated Visa Sponsor</p>
               </transition>
             </p>
           </div>
         </div>
 
         <div class="row">
-          <div class="col">
-            <div>
-              <transition name="fade" mode="out-in">
-                <p key="0" v-if="work1Current==0">PROMOTIONAL I MADE</p>
-                <p key="1" v-if="work1Current==1">EXPERIENCE</p>
-              </transition>
-            </div>
+          <div class="mobile-col col">
+            <transition name="fade" mode="out-in">
+              <p class="no-bottom-margin" key="0" v-if="index==0">Launch website</p>
+              <p class="no-bottom-margin" key="1" v-if="index==1">Launch experience website</p>
+              <p class="no-bottom-margin" key="3" v-if="index==3">Download Deck</p>
+            </transition>
           </div>
         </div>
       </div>
@@ -140,7 +144,7 @@ import { Carousel, Slide } from "vue-carousel";
 export default {
   data() {
     return {
-      work1Current: 0
+      index: 0
     };
   },
   components: {
@@ -154,12 +158,9 @@ export default {
 .row {
   margin: 0;
 }
-.carousel {
-  /* box-shadow: 10px 10px 8px #888888; */
-}
 
-.work-item-row {
-  margin-bottom: 400px;
+.work-item {
+  margin-top: 10vh;
 }
 
 .col-xl-6 {
@@ -178,12 +179,13 @@ export default {
 }
 .last-row {
   position: absolute;
-  bottom: 64px;
+  bottom: 65px;
 }
 
 p {
   color: white;
   font-family: "HelveticaNowDisplay-Bold";
+  text-transform: uppercase;
 }
 
 .carousel-inner {
@@ -223,5 +225,9 @@ p {
 .description-mobile {
   padding: 0;
   margin-top: 5vh;
+}
+
+.mobile-col {
+  padding: 0;
 }
 </style>

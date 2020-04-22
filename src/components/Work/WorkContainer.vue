@@ -1,28 +1,24 @@
 <template>
   <div class="container-fluid">
     <!-- Work Component Start  -->
-    <app-rootnode></app-rootnode>
+    <four18sec></four18sec>
+    <rootnode></rootnode>
   </div>
 </template>
 
 <script>
+import four18sec from "./Work-Items/four18sec";
 import rootnode from "./Work-Items/rootnode";
 
 export default {
-  data() {
-    return {
-      work1Current: 0
-    };
-  },
   components: {
-    "app-rootnode": rootnode
+    four18sec,
+    rootnode
   }
 };
 </script>
 
 <style scoped>
-
-
 .container-fluid {
   background-color: #0c2db3;
   padding-bottom: 100px;
