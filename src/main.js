@@ -3,7 +3,7 @@ import App from "./App.vue";
 import VueRouter from "vue-router";
 
 import Intro from "./components/Intro";
-import Work from "./components/Work";
+import Work from "./components/Work/WorkContainer";
 import Books from "./components/Books";
 
 import "bootstrap/dist/js/bootstrap.min.js";
