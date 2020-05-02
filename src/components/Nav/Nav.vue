@@ -1,13 +1,13 @@
 <template>
   <div class="container-fluid navigation">
     <div class="row navigation-row">
-      <div class="col" style="padding-left:0;">
+      <div class="col-2" style="padding-left:0;">
         <div class="logo" :class="{ 
         'black' : homePage , 'white' : notHome}">
-          <p>PAVLOS MOROS</p>
+          <p>PAVLOS <span class="d-none d-sm-block"> MOROS</span></p>
         </div>
       </div>
-      <div class="col-5">
+      <div class="col">
         <div class="central">
           <router-link
             class="central-item"
@@ -29,10 +29,11 @@
           >BOOKS</router-link>
         </div>
       </div>
-      <div class="col" style="padding-right:0 ;">
+      <div class="col-2 " style="padding-right:0 ;">
         <div class="contact" style :class="{ 
         'black' : homePage , 'white' : notHome}">
-          <p>GET IN TOUCH</p>
+          <p class="d-none d-sm-block">GET IN TOUCH</p>
+          <p class="d-block d-sm-none">CONTACT</p>
         </div>
       </div>
     </div>

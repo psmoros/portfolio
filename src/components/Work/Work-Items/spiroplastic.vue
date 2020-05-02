@@ -216,7 +216,7 @@ p {
 }
 
 .description {
-  padding-left: 3vw;
+  padding-left: 4vw;
   margin-top: -6px;
 }
 

@@ -175,6 +175,10 @@ p {
   text-transform: uppercase;
 }
 
+.col{
+padding: 0;
+}
+
 .carousel-inner {
   height: 0;
   overflow: hidden;
@@ -205,7 +209,7 @@ p {
 }
 
 .description {
-  padding-left: 3vw;
+  padding-left: 4vw;
   margin-top: -6px;
 }
 

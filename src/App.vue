@@ -63,5 +63,13 @@ export default {
   src: url(./assets/HelveticaNowDisplay-Bold.ttf);
   font-weight: bold;
 }
+
+@font-face {
+  font-family: "HelveticaNowDisplay-Light";
+  src: url(./assets/HelveticaNowDisplay-Light.ttf);
+  font-weight: lighter;
+}
+
+
 </style>
 

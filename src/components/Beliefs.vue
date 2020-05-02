@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="beliefs container-fluid">
+    <div class="beliefs container-fluid d-none d-sm-block">
       <div class="row beliefs-row">
         <div class="belief col">
           <div class="row">
@@ -52,7 +52,7 @@
             <p>BELIEF — N°005</p>
           </div>
           <div class="row last-row belief-title">
-            <p>GROWTH IS BELIEF CHANGE</p>
+            <p>GROWING MEANS CHANGING</p>
           </div>
           <div class="last-row row belief-description">
             <p>It is crucial to have ideas and not let ideas have you. Thinking for one’s self and rejecting party-mindedness is the first principle of science. Don’t fool yourself and you’re the easiest person to fool.</p>
@@ -75,13 +75,13 @@ export default {};
 
 .beliefs {
   padding: 0;
-  position: relative;
+  position: absolute;
   /* display: none; */
   /* background-color: blueviolet; */
 }
 .beliefs-row {
   color: black;
-  margin-top: 20vh;
+  margin-top: 17vh;
   padding-right: 5vw;
   padding-left: 5vw;
 }

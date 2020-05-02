@@ -3,7 +3,7 @@
     <div class="intro">
       <div class="greeting">
         <div class="d-flex flex-row">
-          <div class="col" style="padding-left : 0;">
+          <div class="col greet-col">
             <transition name="fade" mode="out-in">
               <component :is="greeting[activeLang].name"></component>
             </transition>
@@ -11,7 +11,11 @@
         </div>
         <div class="d-flex flex-row">
           <div class="col" style="padding-left : 0;">
-            <h1 class="text lower">AN ENTERPRISING HUMANIST.</h1>
+            <h1 class="text d-none d-sm-block lower">AN ENTERPRISING HUMANIST.</h1>
+            <h1 class="d-block text lower d-sm-none">
+              AN ENTERPRISING
+              <br>HUMANIST.
+            </h1>
           </div>
         </div>
       </div>
@@ -25,7 +29,7 @@ import French from "./Languages/French";
 import Greek from "./Languages/Greek";
 import Spanish from "./Languages/Spanish";
 import Arabic from "./Languages/Arabic";
-import Russian from "./Languages/Russian";
+// import Russian from "./Languages/Russian";
 
 export default {
   data() {
@@ -46,10 +50,10 @@ export default {
         },
         {
           name: "Spanish"
-        },
-        {
-          name: "Russian"
         }
+        // {
+        //   name: "Russian"
+        // }
       ]
     };
   },
@@ -81,8 +85,8 @@ export default {
     French,
     Greek,
     Spanish,
-    Arabic,
-    Russian
+    Arabic
+    // Russian
   }
 };
 </script>
@@ -96,12 +100,34 @@ export default {
 
 .text {
   margin: 0 0 5px 0;
-  font-size: 3rem;
 }
 
-.greeting {
-  display: inline-block;
-  margin-top: 29vh;
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 576px) {
+  .text {
+    font-size: 3rem;
+  }
+
+  .greeting {
+    display: inline-block;
+    margin-top: 32vh;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 575px) {
+  .text {
+    font-size: 2rem;
+  }
+
+  .greeting {
+    display: inline-block;
+    margin-top: 30vh;
+  }
+}
+
+.greet-col {
+  padding-left: 0;
 }
 
 h1 {

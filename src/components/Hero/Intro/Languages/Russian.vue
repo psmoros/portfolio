@@ -1,5 +1,11 @@
 <template>
-      <h1 class="upper text russian">добро пожаловать, Я павлос.</h1>
+  <div>
+    <h1 class="upper text d-none russian d-sm-block">добро пожаловать, Я павлос.</h1>
+    <h1 class="upper text d-block russian d-sm-none">
+      добро пожаловать,
+      <br>Я павлос.
+    </h1>
+  </div>
 </template>
 
 <style>

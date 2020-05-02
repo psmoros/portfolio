@@ -4,11 +4,15 @@ import VueRouter from "vue-router";
 
 import Intro from "./components/Intro";
 import Work from "./components/Work/WorkContainer";
-import Books from "./components/Books";
+import Books from "./components/Books/BookContainer";
 
 import "bootstrap/dist/js/bootstrap.min.js";
 
 import BootstrapVue from "bootstrap-vue";
+
+import SmoothReflow from "./components/SmoothReflow";
+
+Vue.component("SmoothReflow", SmoothReflow);
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

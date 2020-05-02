@@ -304,28 +304,52 @@ export default {
 
 <style >
 .head {
-  margin: -25vh 0 0 0;
+
   align-items: center;
-  width: 400px;
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 576px) {
+  .head {
+      margin-top: -19vh;
+    width: 400px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 575px) {
+  .head {
+    width: 220px;
+    /* margin-top: -40vh; */
+    /* margin-right: -20px; */
+          margin-top: -4vh;
+  }
+
+  .shade {
+    display: none;
+  }
+/* 
+  .helper {
+    height: 50vh;
+  } */
 }
 
 .shade {
-  margin-top: -11%;
-  margin-left: 126px;
+  margin-top: -22%;
 }
 
 .shade-work {
-  margin-left: 99px;
+  margin-left: 97px;
   transition: margin-left 0.63s;
 }
 
 .shade-home {
-  margin-left: 126px;
+  margin-left: 124px;
   transition: margin-left 0.63s;
 }
 
 .shade-books {
-  margin-left: 87px;
+  margin-left: 82px;
   transition: margin-left 0.63s;
 }
 
@@ -335,9 +359,9 @@ export default {
   display: flex;
   /* flex-direction: column; */
   flex-wrap: wrap;
-  width: 400px;
+  width: auto;
   top: 0;
-  right: 10vw;
+  right: 0;
   height: 100vh;
 }
 

@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
 .container-fluid {
-  background-color: #0c2db3;
+  background-color: #0d2eb3;
   padding-bottom: 100px;
   padding-left: 5vw;
   padding-right: 5vw;
