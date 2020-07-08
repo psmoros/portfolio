@@ -2,24 +2,36 @@
   <div class="container-fluid">
     <!-- option bar -->
     <div class="row option-bar">
-      <div class="col">
-        <p @click="onlyFavs = !onlyFavs" class="fav-only">ONLY SHOW FAVORITES</p>
+      <div class="col-3">
+        <div @click="onlyFavs = !onlyFavs" class="fav-only">
+          <p class="fav-only d-none d-md-block">ONLY SHOW FAVORITES</p>
+          <p class="fav-only d-md-none">ONLY FAVORITES</p>
+        </div>
       </div>
       <div class="col">
-        <input type="text" v-model="search" placeholder="SEARCH">
+        <input
+          class="myinput"
+          type="text"
+          v-model="search"
+          placeholder="Find by genre, title, author"
+        >
       </div>
       <div class="col-3">
-        <p class="count">{{filteredBooks.length}} Results</p>
+        <p v-if="filteredBooks.length>1" class="count">{{filteredBooks.length}} RESULTS</p>
+        <p v-if="filteredBooks.length===1" class="count">1 RESULT</p>
+        <p v-if="filteredBooks.length===0" class="count">NO RESULTS...</p>
       </div>
     </div>
     <!-- Body -->
+
+    <!-- <div>{{books}}</div> -->
     <div v-for="(book, index) in filteredBooks" :key="index">
       <div class="row book-row">
         <!-- description column -->
-        <div class="col-5">
+        <div class="col-5 book-col">
           <div class="row">
             <!-- fav icon -->
-            <div v-if="book.fav" class="col-0">
+            <div v-if="book.Fav === 'Yes'" class="col-0 d-none d-md-block">
               <svg
                 class="bi bi-bookmark-fill"
                 width="1.6rem"
@@ -35,19 +47,39 @@
                 ></path>
               </svg>
             </div>
+
             <!-- description -->
             <div class="col book-col">
               <!-- book count -->
               <div class="row">
-                <p class="book-count">BOOK — N°00{{index+1}}</p>
+                <p v-if="index<9" class="book-count">BOOK — N°00{{index+1}}</p>
+                <p v-if="index<99 && index>=9" class="book-count">BOOK — N°0{{index+1}}</p>
+                <p v-if="index>=99" class="book-count">BOOK — N°{{index+1}}</p>
+                <!-- fav mobile -->
+                <div v-if="book.Fav === 'Yes'" class="col-0 d-md-none">
+                  <svg
+                    class="bi bi-bookmark-fill"
+                    width="0.8rem"
+                    height="0.8rem"
+                    viewBox="0 0 16 16"
+                    fill="#fff55a"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M3 3a2 2 0 012-2h6a2 2 0 012 2v12l-5-3-5 3V3z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
               </div>
               <!-- title -->
               <div class="row">
-                <p class="book-title">{{book.title}}</p>
+                <p class="book-title">{{book.Title}}</p>
               </div>
               <!-- author -->
               <div class="row">
-                <p class="book-author">{{book.author}}</p>
+                <p class="book-author">{{book.Author}}</p>
               </div>
             </div>
           </div>
@@ -55,32 +87,38 @@
         <!-- book content -->
         <div class="col">
           <!-- fav quote -->
-          <div class="row content-row">
+          <div v-if="book.FavQuote !== ''" class="row content-row">
             <div class="col">
               <p>FAVORITE QUOTE</p>
-              <p>{{book.favQuote}}</p>
+              <p>{{book.FavQuote}}</p>
             </div>
           </div>
           <!-- review -->
-          <div class="row content-row">
+          <div v-if="book.Why !== ''" class="row content-row">
             <div class="col">
-              <p>REVIEW</p>
-              <SmoothReflow>
+              <p>PURPOSE</p>
+              <p>{{book.Why}}</p>
+              <!-- <SmoothReflow>
                 <p class="review" key="0" v-if="!book.long" v-html="collapsedText(book.review)"></p>
                 <p class="review" key="1" v-if="book.long" v-html="book.review"></p>
                 <button
                   class="my-btn"
                   @click="book.long =!book.long"
-                >[{{books[index].long ? '-' : '+'}}]</button>
-              </SmoothReflow>
+                  v-if="book.review.length > 280"
+                >[{{filteredBooks[index].long ? '-' : '+'}}]</button>
+              </SmoothReflow>-->
+            </div>
+          </div>
+          <div v-if="book.What !== ''" class="row content-row">
+            <div class="col">
+              <p>LEARNINGS</p>
+              <p v-html="book.What"/>
             </div>
           </div>
           <!-- genre -->
           <div class="row">
             <div class="col">
-              <div class="genre" v-for="(g, i) in book.genre" :key="i">
-                <p class="genre">{{book.genre[i] | appendGenres(i) }}</p>
-              </div>
+              <p class="genre">{{book.Genre}}</p>
             </div>
           </div>
         </div>
@@ -90,23 +128,15 @@
 </template>
 
 <script>
-import db from "../firebaseInit.js";
+// import db from "../firebaseInit.js";
+import bookData from "../bookData.js";
+// import _ from "lodash";
+
+// import PostService from "../../PostService.js";
 
 export default {
   data() {
     return {
-      // books: [
-      //   {
-      //     title: "LOVE, POVERTY AND WAR",
-      //     author: "CHISTOPHER HITCHENS",
-      //     favQuote:
-      //       "In a time when both rights and reason are under several kinds of open and covert attack, the life and writing of Thomas Paine will always be part of the arsenal on which we shall need to depend.",
-      //     review:
-      //       "It's hardly surprising to find the object of this commentary that coined the idiom <em>Human Rights </em>amongst the Atlantic Monthly Press's 10 Books that Changed the World amongst the bible, the quran, plato's republic, darwin's origin of species, marx's das kapital, smith's wealth of nations, makiaveli's prince and clausewitch's on war. Being a political descendant of the founding father, Hitchens provides a stark and approachable account of this work's context and impact. This makes for an essential for anyone with aspirations to stand for human dignity.",
-      //     genre: ["PHILOSOPHY", "ETHICS", "TREATISE"],
-      //     long: false
-      //   }
-      // ],
       books: [],
       search: "",
       onlyFavs: false
@@ -115,32 +145,48 @@ export default {
 
   methods: {
     collapsedText(review) {
-      const res = review.toString().slice(0, 280);
-      return res.concat("...");
+      if (review.toString().length > 280) {
+        const res = review.toString().slice(0, 280);
+
+        return res.concat("...");
+      }
+      return review;
+    },
+    compare(a, b) {
+      console.log("a.title = " + a.Title + ", b.title = " + b.Title);
+
+      if (a.Title < b.Title) {
+        console.log(-1);
+        return -1;
+      }
+      if (a.Title > b.Title) {
+        console.log(1);
+        return 1;
+      }
+      console.log(0);
+      return 0;
+    },
+    sort() {
+      console.log("called sort");
+      this.books = this.books.sort(this.compare);
     }
   },
 
-  // filters: {
-  //   striphtml: function(value) {
-  //     var div = document.createElement("div");
-  //     div.innerHTML = value;
-  //     var text = div.textContent || div.innerText || "";
-  //     return text;
-  //   }
-  // },
   computed: {
     filteredBooks() {
-      return this.books.filter(books => {
+      return bookData.filter(bookData => {
         if (
           !this.onlyFavs &&
-          (books.author.toUpperCase().match(this.search.toUpperCase()) ||
-            books.title.toUpperCase().match(this.search.toUpperCase()))
+          (bookData.Author.toUpperCase().match(this.search.toUpperCase()) ||
+            bookData.Title.toUpperCase().match(this.search.toUpperCase()) ||
+            bookData.Genre.toUpperCase().match(this.search.toUpperCase()))
         ) {
           return true;
         } else if (
-          books.fav &&
-          (books.author.toUpperCase().match(this.search.toUpperCase()) ||
-            books.title.toUpperCase().match(this.search.toUpperCase()))
+          bookData.Fav === "Yes" &&
+          (bookData.Author.toUpperCase().match(this.search.toUpperCase()) ||
+            bookData.Title.toUpperCase().match(this.search.toUpperCase()) ||
+            bookData.Genre.toUpperCase().match(this.search.toUpperCase()))
         ) {
           return true;
         }
@@ -157,37 +203,111 @@ export default {
       return value;
     }
   },
+
   created() {
-    db.collection("books")
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          const data = {
-            title: doc.data().title,
-            author: doc.data().author,
-            favQuote: doc.data().favQuote,
-            review: doc.data().review,
-            genre: doc.data().genre,
-            long: doc.data().long,
-            fav: doc.data().fav
-          };
-          this.books.push(data);
-        });
-      });
+    bookData = bookData.sort(this.compare);
   }
 };
 </script>
 
 <style scoped>
-/* .long-enter-active,
-.long-leave-active {
-  transition-property: height;
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 1199.98px) {
+  .count {
+    font-size: 1.6rem;
+  }
+  .book-title {
+    font-size: 1.6rem;
+  }
+
+  .col-0 {
+    margin-left: -31px;
+    margin-right: 5px;
+    margin-top: 2.7px;
+  }
 }
 
-.long-enter,
-.long-leave-to {
-  height: 0;
-} */
+@media screen and (max-width: 1199.98px) {
+  .book-title {
+    font-size: 1.2rem;
+    margin: 5px 0 5px 0;
+  }
+
+  .count {
+    font-size: 1.2rem;
+  }
+
+  .book-row {
+    font-size: 0.9rem;
+  }
+
+  .col-0 {
+    margin-left: -31px;
+    margin-right: 5px;
+    margin-top: 1.5px;
+  }
+
+  .option-bar {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  .book-title {
+    font-size: 1rem;
+    margin: 5px 0 5px 0;
+  }
+
+  .count {
+    font-size: 1rem;
+  }
+
+  .book-row {
+    font-size: 0.8rem;
+  }
+
+  .col-0 {
+    margin-left: -31px;
+    margin-right: 5px;
+    margin-top: 1.5px;
+  }
+
+  .option-bar {
+    font-size: 0.8rem;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 767.98px) {
+  .book-title {
+    font-size: 0.8rem;
+    margin: 5px 0 5px 0;
+    color: #fff55a;
+  }
+
+  .count {
+    font-size: 0.8rem;
+  }
+
+  .book-row {
+    font-size: 0.625rem;
+  }
+
+  .col-0 {
+    margin-left: 5px;
+
+    margin-top: 0px;
+  }
+
+  .myinput {
+    margin-top: -2px;
+  }
+
+  .option-bar {
+    font-size: 0.625rem;
+  }
+}
+
 .container-fluid {
   background-color: #f34e32;
   padding-left: 5vw;
@@ -221,6 +341,7 @@ export default {
 .fav-only {
   cursor: pointer;
   display: inline;
+  margin-top: 1.9px;
 }
 
 p {
@@ -239,7 +360,6 @@ textarea {
 }
 
 .book-title {
-  font-size: 1.6rem;
   text-transform: uppercase;
 }
 
@@ -255,16 +375,11 @@ input:focus {
 
 .genre {
   display: inline;
+  text-transform: uppercase;
 }
 
 input::placeholder {
   color: white;
-}
-
-.col-0 {
-  margin-left: -31px;
-  margin-right: 5px;
-  margin-top: 2.7px;
 }
 
 .book-count {
@@ -282,8 +397,17 @@ input::placeholder {
 }
 
 .col,
-.col-5 {
+.col-2,
+.col-3 {
   padding: 0;
+}
+
+.myinput {
+  width: 100%;
+}
+
+.book-col {
+  padding: 0 10px 0 0;
 }
 
 .option-bar {
@@ -292,11 +416,7 @@ input::placeholder {
 
 .count {
   color: #fff55a;
-  font-size: 1.6rem;
+  margin-top: -2px;
   float: right;
-}
-
-.col {
-  padding: 0;
 }
 </style>

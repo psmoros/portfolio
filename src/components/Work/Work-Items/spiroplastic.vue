@@ -1,59 +1,29 @@
 <template>
   <!-- Component -->
-  <div class="row">
+  <div class="row work-item">
     <!-- Title  -->
     <div class="row">
-      <p>WORK — N°001 : ROOTNODE</p>
+      <p>Work — N°004 : spiroplastic</p>
     </div>
     <!-- Body  -->
-    <div class="row work-item-row">
+    <div class="row">
       <!-- Carousel -->
       <div class="col-xl-6">
-        <carousel
-          class="carousel"
-          :per-page="1"
-          v-model="work1Current"
-          :paginationEnabled="enable"
-          :paginationActiveColor="'#FFFFFF'"
-          :paginationColor="'rgba(255,255,255,0.3)'"
+        <img
+          class="d-block w-100"
+          src="../../../assets/work/spiroplastic/spiroplastic.jpg"
+          alt="Second slide"
         >
-          <slide>
-            <div class="embed-responsive embed-responsive-16by9">
-              <video class="d-block w-100" loop controls>
-                <source src="../../../assets/work/rootnode/promo-mini.mp4" type="video/mp4">Your browser does not support the video tag.
-              </video>
-            </div>
-          </slide>
-
-          <slide>
-            <video class="d-block w-100" loop controls>
-              <source src="../../../assets/work/rootnode/experience.mp4" type="video/mp4">Your browser does not support the video tag.
-            </video>
-          </slide>
-          <slide>
-            <img
-              class="d-block w-100"
-              src="../../../assets/work/rootnode/team.jpg"
-              alt="Second slide"
-            >
-          </slide>
-          <slide>
-            <img
-              class="d-block w-100"
-              src="../../../assets/work/rootnode/Deckv1.jpeg"
-              alt="Second slide"
-            >
-          </slide>
-        </carousel>
       </div>
       <!-- Description -->
-      <div class="col-xl-6 fill-height-or-more description d-none d-xl-block">
+      <div class="col-xl-6 description d-none d-xl-block">
         <div class="row">
           <div class="col">
-            <p class="years">2017 – 2019</p>
+            <p class="years">{{years}}</p>
             <p>
-              INDUSTRY
-              <br>SOFTWARE DEVELOPMENT
+              Industry
+              <br>
+              {{industry}}
             </p>
           </div>
         </div>
@@ -61,73 +31,71 @@
           <div class="col">
             <p>
               ROLE
-              <br>FOUNDER & CEO
+              <br>
+              {{role}}
             </p>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <p>
-              SLIDE CAPTION
+              Stack
               <br>
-              <transition name="fade" mode="out-in">
-                <p key="0" v-if="work1Current==0">PROMOTIONAL I MADE</p>
-                <p key="1" v-if="work1Current==1">EXPERIENCE</p>
-              </transition>
+              {{stack}}
             </p>
           </div>
         </div>
-
         <div class="row last-row">
           <div class="col">
             <div class="launch-project">
-              <transition name="fade" mode="out-in">
-                <p class="no-bottom-margin" key="0" v-if="work1Current==0">PROMOTIONAL I MADE</p>
-                <p class="no-bottom-margin" key="1" v-if="work1Current==1">EXPERIENCE</p>
-              </transition>
+              <a
+                :href="myref"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="no-bottom-margin"
+              >{{link}}</a>
             </div>
           </div>
         </div>
       </div>
+      <!-- Mobile -->
       <div class="col description-mobile d-xl-none">
         <div class="row">
-          <div class="col">
-            <p class="years">2017 – 2019</p>
+          <div class="mobile-col col">
+            <p class="years">{{years}}</p>
             <p>
-              INDUSTRY
-              <br>SOFTWARE DEVELOPMENT
+              Industry
+              <br>
+              {{industry}}
             </p>
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="mobile-col col">
             <p>
               ROLE
-              <br>FOUNDER & CEO
+              <br>
+              {{role}}
             </p>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <p>
-              SLIDE CAPTION
+              Stack
               <br>
-              <transition name="fade" mode="out-in">
-                <p key="0" v-if="work1Current==0">PROMOTIONAL I MADE</p>
-                <p key="1" v-if="work1Current==1">EXPERIENCE</p>
-              </transition>
+              {{stack}}
             </p>
           </div>
         </div>
-
         <div class="row">
-          <div class="col">
-            <div>
-              <transition name="fade" mode="out-in">
-                <p key="0" v-if="work1Current==0">PROMOTIONAL I MADE</p>
-                <p key="1" v-if="work1Current==1">EXPERIENCE</p>
-              </transition>
-            </div>
+          <div class="mobile-col col">
+            <a
+              :href="myref"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="no-bottom-margin"
+            >{{link}}</a>
           </div>
         </div>
       </div>
@@ -136,30 +104,34 @@
 </template>
 
 <script>
-import { Carousel, Slide } from "vue-carousel";
 export default {
   data() {
     return {
-      work1Current: 0
+      index: 0,
+      years: "2019",
+      industry: "HEAVY INDUSTRY, CHEMICAL MANUFACTURING",
+      role: "Project Management",
+      stack: "React",
+      link: "Visit spiroplastic",
+      myref: "https://spiroplastic.com"
     };
-  },
-  components: {
-    Carousel,
-    Slide
   }
 };
 </script>
 
 <style scoped>
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 575px) {
+  .work-item {
+    font-size: 0.8rem;
+  }
+}
 .row {
   margin: 0;
 }
-.carousel {
-  /* box-shadow: 10px 10px 8px #888888; */
-}
 
-.work-item-row {
-  margin-bottom: 400px;
+.work-item {
+  margin-top: 10vh;
 }
 
 .col-xl-6 {
@@ -178,12 +150,19 @@ export default {
 }
 .last-row {
   position: absolute;
-  bottom: 64px;
+  bottom: -5px;
 }
 
-p {
+p,
+a {
   color: white;
   font-family: "HelveticaNowDisplay-Bold";
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.col {
+  padding: 0;
 }
 
 .carousel-inner {
@@ -223,5 +202,9 @@ p {
 .description-mobile {
   padding: 0;
   margin-top: 5vh;
+}
+
+.mobile-col {
+  padding: 0;
 }
 </style>

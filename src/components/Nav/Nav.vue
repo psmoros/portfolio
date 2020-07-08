@@ -2,38 +2,56 @@
   <div class="container-fluid navigation">
     <div class="row navigation-row">
       <div class="col-2" style="padding-left:0;">
-        <div class="logo" :class="{ 
-        'black' : homePage , 'white' : notHome}">
-          <p>PAVLOS <span class="d-none d-sm-block"> MOROS</span></p>
-        </div>
+        <router-link
+          to="/"
+          class="logo item"
+          :class="{ 
+        'item-black' : homePage , 'item-white' : notHome}"
+        >
+          <p class="d-none d-lg-block">PAVLOS MOROS</p>
+          <p class="d-lg-none">PAVLOS</p>
+        </router-link>
       </div>
       <div class="col">
         <div class="central">
           <router-link
-            class="central-item"
+            class="central-item item"
             :class="{ 
-        'item-black' : homePage , 'item-white' : notHome}"
+        'item-black' : homePage , 'item-white' : notHome, 'story.hover' : homePage}"
             to="/"
           >INTRO</router-link>
           <router-link
-            class="central-item"
+            class="central-item item"
             :class="{ 
         'item-black' : homePage , 'item-white' : notHome}"
             to="/work"
           >WORK</router-link>
           <router-link
-            class="central-item"
+            class="central-item item"
             :class="{ 
         'item-black' : homePage , 'item-white' : notHome}"
             to="/books"
           >BOOKS</router-link>
         </div>
       </div>
-      <div class="col-2 " style="padding-right:0 ;">
-        <div class="contact" style :class="{ 
-        'black' : homePage , 'white' : notHome}">
-          <p class="d-none d-sm-block">GET IN TOUCH</p>
-          <p class="d-block d-sm-none">CONTACT</p>
+      <div class="col-2" style="padding-right:0 ;">
+        <div class="contact">
+          <p class="d-none d-lg-block">
+            <a
+              class="item"
+              :class="{ 
+        'item-black' : homePage , 'item-white' : notHome}"
+              href="mailto:hi@pavlosmoros.com"
+            >GET IN TOUCH</a>
+          </p>
+          <p class="d-lg-none item">
+            <a
+              class="item"
+              :class="{ 
+        'item-black' : homePage , 'item-white' : notHome}"
+              href="mailto:hi@pavlosmoros.com"
+            >CONTACT</a>
+          </p>
         </div>
       </div>
     </div>
@@ -43,7 +61,12 @@
 <script>
 export default {
   data() {
-    return { homePage: false, notHome: false };
+    return {
+      homePage: false,
+      notHome: false,
+      workPage: false,
+      booksPage: false
+    };
   },
   watch: {
     $route() {
@@ -53,10 +76,16 @@ export default {
       // react to route changes...
       if (this.$route.path == "/") {
         this.homePage = true;
+        this.workPage = false;
+        this.booksPage = false;
       } else if (this.$route.path == "/work") {
         this.notHome = true;
+        this.workPage = true;
+        this.booksPage = false;
       } else if (this.$route.path == "/books") {
         this.notHome = true;
+        this.booksPage = true;
+        this.workPage = false;
       }
     }
   },
@@ -75,6 +104,20 @@ export default {
 
 
 <style>
+/*  */
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 576px) {
+  .navigation {
+    font-size: 1rem;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 575px) {
+  .navigation {
+    font-size: 0.8rem;
+  }
+}
 .white {
   color: white;
   transition: color 0.63s;
@@ -87,6 +130,9 @@ export default {
 
 .central-item {
   padding: 0 1vw 0 1vw;
+}
+
+.item {
   color: transparent;
 }
 .row {
@@ -164,8 +210,53 @@ export default {
   padding-left: 0;
 }
 
+.logo-text {
+  display: inline;
+}
+
 .navigation-row {
   margin: 0 5vw 0 5vw;
 }
+
+/* .central-item {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+
+  text-decoration: none;
+}
+.item-black:after {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: black;
+  bottom: -9px;
+  transform: scale(0, 1);
+  transition: transform 0.3s;
+  transform-origin: right top;
+}
+.item-black:hover::after, .story.hover {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.item-white:after {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: white;
+  bottom: -9px;
+  transform: scale(0, 1);
+  transition: transform 0.3s;
+  transform-origin: right top;
+}
+.item-white:hover::after {
+  transform-origin: left top;
+  transform: scale(1, 1);
+} */
 </style>
 

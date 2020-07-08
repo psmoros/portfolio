@@ -12,18 +12,17 @@
         <carousel
           :per-page="1"
           v-model="index"
-          :paginationEnabled="enable"
           :paginationActiveColor="'#FFFFFF'"
           :paginationColor="'rgba(255,255,255,0.3)'"
         >
           <slide>
-            <video class="d-block w-100" loop controls>
+            <video class="d-block w-100" poster="../../../assets/promo-poster.jpg" loop controls>
               <source src="../../../assets/work/rootnode/promo-mini.mp4" type="video/mp4">Your browser does not support the video tag.
             </video>
           </slide>
 
           <slide>
-            <video class="d-block w-100" loop controls>
+            <video class="d-block w-100" poster="../../../assets/work/rootnode/xp-poster.jpg" loop controls>
               <source src="../../../assets/work/rootnode/experience.mp4" type="video/mp4">Your browser does not support the video tag.
             </video>
           </slide>
@@ -41,16 +40,24 @@
               alt="Second slide"
             >
           </slide>
+          <slide>
+            <img
+              class="d-block w-100"
+              src="../../../assets/work/rootnode/visa.jpg"
+              alt="Second slide"
+            >
+          </slide>
         </carousel>
       </div>
       <!-- Description -->
       <div class="col-xl-6 description d-none d-xl-block">
         <div class="row">
           <div class="col">
-            <p class="years">2017 – 2019</p>
+            <p class="years">{{years}}</p>
             <p>
               Industry
-              <br>Software Development
+              <br>
+              {{industry}}
             </p>
           </div>
         </div>
@@ -58,7 +65,8 @@
           <div class="col">
             <p>
               ROLE
-              <br>Owner : Sales, Operations, Marketing, Business Development, Software Architecture, Design
+              <br>
+              {{role}}
             </p>
           </div>
         </div>
@@ -68,11 +76,11 @@
               SLIDE DESCRIPTION
               <br>
               <transition name="fade" mode="out-in">
-                <p key="0" v-if="index==0">Promotional I made with AE</p>
-                <p key="1" v-if="index==1">Our experience website</p>
-                <p key="2" v-if="index== 2">Early team</p>
-                <p key="3" v-if="index==3">Pitch deck</p>
-                <p key="4" v-if="index==4">A Rated Visa Sponsor</p>
+                <p key="0" v-if="index==0">{{slides[index].description}}</p>
+                <p key="1" v-if="index==1">{{slides[index].description}}</p>
+                <p key="2" v-if="index== 2">{{slides[index].description}}</p>
+                <p key="3" v-if="index==3">{{slides[index].description}}</p>
+                <p key="4" v-if="index==4">{{slides[index].description}}</p>
               </transition>
             </p>
           </div>
@@ -82,9 +90,10 @@
           <div class="col">
             <div class="launch-project">
               <transition name="fade" mode="out-in">
-                <p class="no-bottom-margin" key="0" v-if="index==0">Launch website</p>
-                <p class="no-bottom-margin" key="1" v-if="index==1">Launch experience website</p>
-                <p class="no-bottom-margin" key="3" v-if="index==3">Download Deck</p>
+                <p class="no-bottom-margin" key="0" v-if="index==0">{{slides[index].link}}</p>
+                <p class="no-bottom-margin" key="1" v-if="index==1">{{slides[index].link}}</p>
+                <p class="no-bottom-margin" key="2" v-if="index==2">{{slides[index].link}}</p>
+                <p class="no-bottom-margin" key="3" v-if="index==3">{{slides[index].link}}</p>
               </transition>
             </div>
           </div>
@@ -94,10 +103,11 @@
       <div class="col description-mobile d-xl-none">
         <div class="row">
           <div class="mobile-col col">
-            <p class="years">2017 – 2019</p>
+            <p class="years">{{years}}</p>
             <p>
               Industry
-              <br>Software Development
+              <br>
+              {{industry}}
             </p>
           </div>
         </div>
@@ -105,7 +115,8 @@
           <div class="mobile-col col">
             <p>
               ROLE
-              <br>Owner : Sales, Operations, Marketing, Business Development, Software Architecture, Design
+              <br>
+              {{role}}
             </p>
           </div>
         </div>
@@ -115,11 +126,11 @@
               SLIDE DESCRIPTION
               <br>
               <transition name="fade" mode="out-in">
-                <p key="0" v-if="index==0">Promotional I made with AE</p>
-                <p key="1" v-if="index==1">Our experience website</p>
-                <p key="2" v-if="index== 2">Early team</p>
-                <p key="3" v-if="index==3">Pitch deck</p>
-                <p key="4" v-if="index==4">A Rated Visa Sponsor</p>
+                <p key="0" v-if="index==0">{{slides[index].description}}</p>
+                <p key="1" v-if="index==1">{{slides[index].description}}</p>
+                <p key="2" v-if="index== 2">{{slides[index].description}}</p>
+                <p key="3" v-if="index==3">{{slides[index].description}}</p>
+                <p key="4" v-if="index==4">{{slides[index].description}}</p>
               </transition>
             </p>
           </div>
@@ -128,9 +139,10 @@
         <div class="row">
           <div class="mobile-col col">
             <transition name="fade" mode="out-in">
-              <p class="no-bottom-margin" key="0" v-if="index==0">Launch website</p>
-              <p class="no-bottom-margin" key="1" v-if="index==1">Launch experience website</p>
-              <p class="no-bottom-margin" key="3" v-if="index==3">Download Deck</p>
+              <p class="no-bottom-margin" key="0" v-if="index==0">{{slides[index].link}}</p>
+              <p class="no-bottom-margin" key="1" v-if="index==1">{{slides[index].link}}</p>
+              <p class="no-bottom-margin" key="2" v-if="index==2">{{slides[index].link}}</p>
+              <p class="no-bottom-margin" key="3" v-if="index==3">{{slides[index].link}}</p>
             </transition>
           </div>
         </div>
@@ -144,7 +156,33 @@ import { Carousel, Slide } from "vue-carousel";
 export default {
   data() {
     return {
-      index: 0
+      index: 0,
+      years: "2017 – 2019",
+      industry: "Software Development",
+      role:
+        "Owner : Sales, Operations, Marketing, Business Development, Software Architecture, Design",
+
+      slides: [
+        {
+          description: "Promotional I made with aftereffects",
+          link: ""
+        },
+        {
+          description: "Our experience website",
+          link: ""
+        },
+        {
+          description: "Early team in front of our office"
+        },
+        {
+          description: "Our value proposition",
+          link: ""
+        },
+        {
+          description: "A rated uk visa sponsorship",
+          link: ""
+        }
+      ]
     };
   },
   components: {
@@ -155,6 +193,12 @@ export default {
 </script>
 
 <style scoped>
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 575px) {
+  .work-item {
+    font-size: 0.8rem;
+  }
+}
 .row {
   margin: 0;
 }
@@ -188,8 +232,8 @@ p {
   text-transform: uppercase;
 }
 
-.col{
-padding: 0;
+.col {
+  padding: 0;
 }
 
 .carousel-inner {

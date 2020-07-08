@@ -21,13 +21,30 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 const routes = [
-  { path: "/", component: Intro },
+  {
+    path: "/",
+    component: Intro,
+    meta: {
+      title: "Pavlos",
+      metaTags: [
+        {
+          name: "description",
+          content: "Pavlos' portfolio."
+        },
+        {
+          property: "og:description",
+          content: "Pavlos' portfolio."
+        }
+      ]
+    }
+  },
   { path: "/intro", redirect: "/" },
   { path: "/work", component: Work },
   { path: "/books", component: Books }
 ];
 
 const router = new VueRouter({
+  mode: "history",
   routes
 });
 

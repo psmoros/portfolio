@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 class="arabic upper d-none d-sm-block text">.أهلا، أنا بافلوس</h1>
+    <h1 class="arabic upper text d-none d-md-block">.أهلا، أنا بافلوس</h1>
 
-    <h1 class="upper arabic text d-block d-sm-none">
+    <h1 class="upper arabic text  d-md-none">
       ،أهلا
       <br>.أنا بافلوس
     </h1>

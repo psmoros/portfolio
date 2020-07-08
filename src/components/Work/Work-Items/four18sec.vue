@@ -2,17 +2,19 @@
   <!-- Component -->
   <div class="row">
     <!-- Title  -->
-    <div class="row">
-      <p>Work — N°001 : 418sec</p>
-    </div>
+
     <!-- Body  -->
-    <div class="row work-item-row">
+    <div class="row work-item">
+      <div class="row">
+        <p>Work — N°001 : 418sec</p>
+      </div>
       <!-- Carousel -->
+
+      <!--removed :paginationEnabled="enable" -->
       <div class="col-xl-6">
         <carousel
           :per-page="1"
           v-model="index"
-          :paginationEnabled="enable"
           :paginationActiveColor="'#FFFFFF'"
           :paginationColor="'rgba(255,255,255,0.3)'"
         >
@@ -44,10 +46,11 @@
       <div class="col-xl-6 description d-none d-xl-block">
         <div class="row">
           <div class="col">
-            <p class="years">2020 – PRESENT</p>
+            <p class="years">{{years}}</p>
             <p>
               Industry
-              <br>Cybersecurity
+              <br>
+              {{industry}}
             </p>
           </div>
         </div>
@@ -55,7 +58,17 @@
           <div class="col">
             <p>
               ROLE
-              <br>Full Stack Engineer and Founding Member
+              <br>
+              {{role}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>
+              Stack
+              <br>
+              {{stack}}
             </p>
           </div>
         </div>
@@ -65,9 +78,9 @@
               SLIDE DESCRIPTION
               <br>
               <transition name="fade" mode="out-in">
-                <p key="0" v-if="index==0">HUNTR</p>
-                <p key="1" v-if="index==1">TRUSTD</p>
-                <p key="2" v-if="index== 2">Mayor of London Award</p>
+                <p key="0" v-if="index==0">{{slides[index].description}}</p>
+                <p key="1" v-if="index==1">{{slides[index].description}}</p>
+                <p key="2" v-if="index== 2">{{slides[index].description}}</p>
               </transition>
             </p>
           </div>
@@ -77,8 +90,23 @@
           <div class="col">
             <div class="launch-project">
               <transition name="fade" mode="out-in">
-                <p class="no-bottom-margin" key="0" v-if="index==0">Launch huntr</p>
-                <p class="no-bottom-margin" key="1" v-if="index==1">Launch trustd</p>
+                <a
+                  :href="slides[index].myref"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="no-bottom-margin"
+                  key="0"
+                  v-if="index==0"
+                >{{slides[index].link}}</a>
+                <a
+                  :href="slides[index].myref"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="no-bottom-margin"
+                  key="1"
+                  v-if="index==1"
+                >{{slides[index].link}}</a>
+                <p class="no-bottom-margin" key="2" v-if="index==2">{{slides[index].link}}</p>
               </transition>
             </div>
           </div>
@@ -88,10 +116,11 @@
       <div class="col description-mobile d-xl-none">
         <div class="row">
           <div class="mobile-col col">
-            <p class="years">2020 – PRESENT</p>
+            <p class="years">{{years}}</p>
             <p>
               Industry
-              <br>Cybersecurity
+              <br>
+              {{industry}}
             </p>
           </div>
         </div>
@@ -99,7 +128,17 @@
           <div class="mobile-col col">
             <p>
               ROLE
-              <br>Full Stack Engineer and Founding Member
+              <br>
+              {{role}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>
+              Stack
+              <br>
+              {{stack}}
             </p>
           </div>
         </div>
@@ -109,9 +148,9 @@
               SLIDE DESCRIPTION
               <br>
               <transition name="fade" mode="out-in">
-                <p key="0" v-if="index==0">HUNTR</p>
-                <p key="1" v-if="index==1">TRUSTD</p>
-                <p key="2" v-if="index== 2">Mayor of London Award</p>
+                <p key="0" v-if="index==0">{{slides[index].description}}</p>
+                <p key="1" v-if="index==1">{{slides[index].description}}</p>
+                <p key="2" v-if="index== 2">{{slides[index].description}}</p>
               </transition>
             </p>
           </div>
@@ -120,8 +159,23 @@
         <div class="row">
           <div class="mobile-col col">
             <transition name="fade" mode="out-in">
-              <p class="no-bottom-margin" key="0" v-if="index==0">Launch huntr</p>
-              <p class="no-bottom-margin" key="1" v-if="index==1">Launch trustd</p>
+              <a
+                :href="slides[index].myref"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="no-bottom-margin"
+                key="0"
+                v-if="index==0"
+              >{{slides[index].link}}</a>
+              <a
+                :href="slides[index].myref"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="no-bottom-margin"
+                key="1"
+                v-if="index==1"
+              >{{slides[index].link}}</a>
+              <p class="no-bottom-margin" key="2" v-if="index==2">{{slides[index].link}}</p>
             </transition>
           </div>
         </div>
@@ -135,7 +189,28 @@ import { Carousel, Slide } from "vue-carousel";
 export default {
   data() {
     return {
-      index: 0
+      index: 0,
+      years: "2020 – PRESENT",
+      industry: "Cybersecurity",
+      role:
+        " Head of Product : Business Development, Engineering, Marketing, Management",
+      stack:
+        "Nuxt, graphql, node, serverless, aws lambda, aws amplify, aws appsync",
+      slides: [
+        {
+          description: "Our open source bug bounty board: Huntr",
+          link: "Visit Huntr",
+          myref: "https://huntr.dev"
+        },
+        {
+          description: "Trustd, our secure open source supply chain",
+          link: "Visit Trustd",
+          myref: "https://trustd.dev"
+        },
+        {
+          description: "Mayor of london award"
+        }
+      ]
     };
   },
   components: {
@@ -146,6 +221,12 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 575px) {
+  .work-item {
+    font-size: 0.8rem;
+  }
+}
+
 .row {
   margin: 0;
 }
@@ -169,14 +250,16 @@ export default {
   bottom: 65px;
 }
 
-p {
+p,
+a {
   color: white;
   font-family: "HelveticaNowDisplay-Bold";
   text-transform: uppercase;
+  text-decoration: none;
 }
 
-.col{
-padding: 0;
+.col {
+  padding: 0;
 }
 
 .carousel-inner {
@@ -218,7 +301,7 @@ padding: 0;
   margin-top: 5vh;
 }
 
-.mobile-col{
+.mobile-col {
   padding: 0;
 }
 </style>

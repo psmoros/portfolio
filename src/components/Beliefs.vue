@@ -1,16 +1,19 @@
 <template>
   <div>
-    <div class="beliefs container-fluid d-none d-sm-block">
+    <div class="beliefs container-fluid">
       <div class="row beliefs-row">
         <div class="belief col">
           <div class="row">
             <p>BELIEF — N°001</p>
           </div>
           <div class="row belief-title">
-            <p>EVERYTHING IS LEARNABLE</p>
+            <p>
+              EVERYTHING IS
+              <br class="break">LEARNABLE
+            </p>
           </div>
           <div class="row belief-description">
-            <p>I don’t believe in talent or natural inability. No matter your inborn abilities, only effort can ignite them and turn them into accomplishments. I also believe that everything is teachable.</p>
+            <p>No talented person survives their hard working competiton and no shortcomming survives dedication. Only effort ignites qualities and turns them into accomplishments.</p>
           </div>
         </div>
         <div class="belief col">
@@ -18,10 +21,13 @@
             <p>BELIEF — N°002</p>
           </div>
           <div class="row belief-title">
-            <p>ONLY THE FREE PROSPER</p>
+            <p>
+              ONLY THE FREE
+              <br class="break">PROSPER
+            </p>
           </div>
           <div class="row belief-description">
-            <p>Freedom means the right to tell people what they don’t want to hear and to practice what they deem immoral. Only the individuals and institutions that are comfortable with such adversity and diversity flourish.</p>
+            <p>Being free means having choice and choice is the quantity and quality of competing alternatives. Only the individuals that fish from a wide horizon of good options – in ideas, careers, products, whatever– flourish.</p>
           </div>
         </div>
         <div class="belief col">
@@ -32,7 +38,7 @@
             <p>REASON IS NON-NEGOTIABLE</p>
           </div>
           <div class="row belief-description">
-            <p>Only reason can be entrusted with leading us to objective truths. Faith, authority and gut feeling are generators of falsehoods. In decision making and understanding, reason’s rule is non-negotiable.</p>
+            <p>Only reason can be entrusted with leading us to objective truths. Faith, authority and gut feeling are generators of delusions. In decision making and understanding, reason’s rule is non-negotiable.</p>
           </div>
         </div>
         <div class="belief col">
@@ -43,7 +49,7 @@
             <p>COMPETITION IS FOR LOSERS</p>
           </div>
           <div class="row belief-description">
-            <p>It is impossible to objectively account for any valuation. Footballers are valued more than teachers and Beethoven’s Fifth is said beautiful because some individuals judge so and nothing else. The individual is the measure of all things.</p>
+            <p>Everyone is unique. If discovered, that uniqueness grants its beneficiary an unfair advantage in some very specific trade. If pursued, this trade secures its practitioner with a monopoly where only win-wins are possible.</p>
           </div>
         </div>
 
@@ -55,7 +61,7 @@
             <p>GROWING MEANS CHANGING</p>
           </div>
           <div class="last-row row belief-description">
-            <p>It is crucial to have ideas and not let ideas have you. Thinking for one’s self and rejecting party-mindedness is the first principle of science. Don’t fool yourself and you’re the easiest person to fool.</p>
+            <p>I look for arguments counter to my confortable conclusions so that I may get closer to the truth and be sensitive to the suffering of those beyond myself and my friends. Only an open, undogmatic mind is geared for growth.</p>
           </div>
         </div>
       </div>
@@ -63,12 +69,21 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
 
 
-<style>
+<style scoped>
+@media screen and (max-width: 1199.98px) {
+  .beliefs {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 2018.98px) {
+  .break {
+    display: none;
+  }
+}
+
 .beliefs-row {
   margin: 0;
 }
@@ -81,7 +96,7 @@ export default {};
 }
 .beliefs-row {
   color: black;
-  margin-top: 17vh;
+  margin-top: 59vh;
   padding-right: 5vw;
   padding-left: 5vw;
 }

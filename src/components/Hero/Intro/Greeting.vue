@@ -1,21 +1,23 @@
 <template>
   <div>
     <div class="intro">
-      <div class="greeting">
-        <div class="d-flex flex-row">
-          <div class="col greet-col">
-            <transition name="fade" mode="out-in">
-              <component :is="greeting[activeLang].name"></component>
-            </transition>
+      <div class="mygood">
+        <div class="greeting">
+          <div class="d-flex flex-row">
+            <div class="col greet-col">
+              <transition name="fade" mode="out-in">
+                <component :is="greeting[activeLang].name"></component>
+              </transition>
+            </div>
           </div>
-        </div>
-        <div class="d-flex flex-row">
-          <div class="col" style="padding-left : 0;">
-            <h1 class="text d-none d-sm-block lower">AN ENTERPRISING HUMANIST.</h1>
-            <h1 class="d-block text lower d-sm-none">
-              AN ENTERPRISING
-              <br>HUMANIST.
-            </h1>
+          <div class="d-flex flex-row">
+            <div class="col" style="padding-left : 0;">
+              <h1 class="text lower d-none d-md-block">AN ENTERPRISING HUMANIST.</h1>
+              <h1 class="text lower d-md-none">
+                AN ENTERPRISING
+                <br>HUMANIST.
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -96,6 +98,15 @@ export default {
 .intro {
   margin-left: 5vw;
   margin-right: 5vw;
+  position: absolute;
+  top: 0;
+}
+
+.mygood {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
 }
 
 .text {
@@ -103,26 +114,48 @@ export default {
 }
 
 /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 1199.98px) {
   .text {
     font-size: 3rem;
   }
 
   .greeting {
     display: inline-block;
-    margin-top: 32vh;
+    margin-top: -25vh;
   }
 }
 
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 1199.98px) {
+  .text {
+    font-size: 2.4rem;
+  }
+
+  .greeting {
+    display: inline-block;
+    margin-top: -25vh;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
   .text {
     font-size: 2rem;
   }
 
   .greeting {
     display: inline-block;
-    margin-top: 30vh;
+    margin-top: -21vh;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 575.98px) {
+  .text {
+    font-size: 1.4rem;
+  }
+
+  .greeting {
+    display: inline-block;
+    margin-top: -14vh;
   }
 }
 
