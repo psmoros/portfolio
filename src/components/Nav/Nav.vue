@@ -27,6 +27,7 @@
             to="/work"
           >WORK</router-link>
           <router-link
+            @click="booksClicked"
             class="central-item item"
             :class="{ 
         'item-black' : homePage , 'item-white' : notHome}"
@@ -67,6 +68,15 @@ export default {
       workPage: false,
       booksPage: false
     };
+  },
+  methods: {
+    booksClicked() {
+      this.$gtag.event("books-click", {
+        event_category: "navigation",
+        event_label: "Navigated to books page",
+        value: 1
+      });
+    }
   },
   watch: {
     $route() {
@@ -217,46 +227,4 @@ export default {
 .navigation-row {
   margin: 0 5vw 0 5vw;
 }
-
-/* .central-item {
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-
-  text-decoration: none;
-}
-.item-black:after {
-  position: absolute;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 3px;
-  background: black;
-  bottom: -9px;
-  transform: scale(0, 1);
-  transition: transform 0.3s;
-  transform-origin: right top;
-}
-.item-black:hover::after, .story.hover {
-  transform-origin: left top;
-  transform: scale(1, 1);
-}
-
-.item-white:after {
-  position: absolute;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 3px;
-  background: white;
-  bottom: -9px;
-  transform: scale(0, 1);
-  transition: transform 0.3s;
-  transform-origin: right top;
-}
-.item-white:hover::after {
-  transform-origin: left top;
-  transform: scale(1, 1);
-} */
 </style>
-

@@ -3,7 +3,7 @@
     <!-- option bar -->
     <div class="row option-bar">
       <div class="col-3">
-        <div @click="onlyFavs = !onlyFavs" class="fav-only">
+        <div @click="onlyFavs = !onlyFavs; favsClicked" class="fav-only">
           <p class="fav-only d-none d-md-block">ONLY SHOW FAVORITES</p>
           <p class="fav-only d-md-none">ONLY FAVORITES</p>
         </div>
@@ -169,6 +169,14 @@ export default {
     sort() {
       console.log("called sort");
       this.books = this.books.sort(this.compare);
+    },
+
+    favsClicked() {
+      this.$gtag.event("favs-click", {
+        event_category: "books",
+        event_label: "Only favs clicked",
+        value: 1
+      });
     }
   },
 

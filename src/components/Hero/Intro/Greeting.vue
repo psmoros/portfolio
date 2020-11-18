@@ -74,7 +74,7 @@ export default {
           lang.isActive = this.activeLang === index;
           return lang;
         });
-      }, 3200);
+      }, 5000);
     }
   },
 
@@ -98,8 +98,9 @@ export default {
 .intro {
   margin-left: 5vw;
   margin-right: 5vw;
-  position: absolute;
-  top: 0;
+  /* position: absolute;
+  top: 0; */
+  height:55vh;
 }
 
 .mygood {

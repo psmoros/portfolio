@@ -76,7 +76,6 @@
 
 
 <style scoped>
-
 /* padding bottom  */
 @media screen and (min-height: 1020.98px) {
   .d-sm-block {
@@ -103,13 +102,11 @@
 
 /* padding bottom end */
 
-
 @media screen and (min-width: 1199.98px) {
   .mobile-beliefs {
     display: none;
   }
 }
-
 
 @media screen and (max-width: 1199.98px) {
   .mobile-belief-title {

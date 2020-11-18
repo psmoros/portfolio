@@ -12,15 +12,6 @@ const bookData = [
     Fav: "No"
   },
   {
-    Title: "A Way with Words",
-    Author: "Michael D.C. Drout",
-    Genre: "Linguistics – Writing",
-    FavQuote: "",
-    Why: "",
-    What: "",
-    Fav: "No"
-  },
-  {
     Title: "Alchemy",
     Author: "Rory Sutherland",
     Genre: "Marketing – Psychology",
@@ -67,13 +58,22 @@ const bookData = [
     Fav: "No"
   },
   {
+    Title: "Approaches to Literature",
+    Author: "Michael D.C. Drout",
+    Genre: "Literature",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "Artificial Intelligence",
     Author: "Stuart Russell, Peter Norvig",
     Genre: "Computer Science",
     FavQuote: "",
     Why: "",
     What: "",
-    Fav: "No"
+    Fav: "Yes"
   },
   {
     Title: "Atlas Shrugged",
@@ -150,15 +150,13 @@ const bookData = [
     Fav: "No"
   },
   {
-    Title: "Crush It",
-    Author: "Gary Vaynerchuk",
-    Genre: "Business – Social Media",
-    FavQuote:
-      "Developing your personal brand is key to monetizing your passion online.",
-    Why: "To understand the productive use of social media.",
-    What:
-      "• Despite a lot of fluff and redundancies, good insights on social media.\n<br/>• Content Strategies.",
-    Fav: "No"
+    Title: "De Rerum Natura",
+    Author: "Lucretius",
+    Genre: "Philosophy – Classics – Poetry – Science",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
   },
   {
     Title: "Deep Work",
@@ -177,6 +175,33 @@ const bookData = [
     Why: "",
     What: "",
     Fav: "No"
+  },
+  {
+    Title: "Design a Better Business",
+    Author: "Patrick van der Pijl, Justin Lokitz, Lisa Kay Solomon",
+    Genre: "Design – Business",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Designing Your Life",
+    Author: "Bill Burnett, Dave Evans",
+    Genre: "Self Help",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Drive",
+    Author: "Daniel H. Pink",
+    Genre: "Psychology",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
   },
   {
     Title: "Duct Tape Marketing",
@@ -199,6 +224,15 @@ const bookData = [
     Fav: "Yes"
   },
   {
+    Title: "Escaping the Build Trap",
+    Author: "Melissa Perri",
+    Genre: "Business – Management",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "Essays",
     Author: "George Orwell",
     Genre: "Essays – Politics – Classics",
@@ -209,13 +243,22 @@ const bookData = [
     Fav: "Yes"
   },
   {
+    Title: "Essays",
+    Author: "Michel de Montaigne",
+    Genre: "Philosophy – Essays – Classics",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "Essentialism",
     Author: "Greg McKeown",
     Genre: "Self Help",
     FavQuote: "",
     Why: "",
     What: "",
-    Fav: "No"
+    Fav: "Yes"
   },
   {
     Title: "Existentialism Is a Humanism",
@@ -243,6 +286,24 @@ const bookData = [
     Why: "",
     What: "",
     Fav: "No"
+  },
+  {
+    Title: "Finite and Infinite Games",
+    Author: "James P. Carse",
+    Genre: "Philosophy – Psychology",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "First You Write a Sentence",
+    Author: "Joe Moran",
+    Genre: "Writing",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
   },
   {
     Title: "Freakonomics",
@@ -320,6 +381,15 @@ const bookData = [
     Fav: "No"
   },
   {
+    Title: "How Innovation Works",
+    Author: "Matt Ridley",
+    Genre: "Business – Economics – Science – Technology – History",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "How Proust Can Change Your Life",
     Author: "Alain de Botton",
     Genre: "Philosophy",
@@ -357,6 +427,33 @@ const bookData = [
     Fav: "Yes"
   },
   {
+    Title: "iGen",
+    Author: "Jean M. Twenge",
+    Genre: "Psychology – Sociology",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Influence",
+    Author: "Robert B. Cialdini",
+    Genre: "Psychology",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
+  },
+  {
+    Title: "Insight Out",
+    Author: "Tina Seelig",
+    Genre: "Business – Design",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "Inspired",
     Author: "Marty Cagan",
     Genre: "Business – Management",
@@ -379,6 +476,15 @@ const bookData = [
     Title: "It Doesn’t have to be Crazy at Work",
     Author: "Jason Fried, David Heinemeier Hansson",
     Genre: "Business – Management",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Kim",
+    Author: "Rudyard Kipling",
+    Genre: "Classics – fiction",
     FavQuote: "",
     Why: "",
     What: "",
@@ -423,9 +529,27 @@ const bookData = [
     Fav: "No"
   },
   {
+    Title: "Make Time",
+    Author: "Jake Knapp, John Zeratsky",
+    Genre: "Self Help – Business",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "Man, Economy, and State with Power and Market",
     Author: "Murray N. Rothbard",
     Genre: "Economics",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Managing Oneself",
+    Author: "Peter F. Drucker",
+    Genre: "Business – Self Help",
     FavQuote: "",
     Why: "",
     What: "",
@@ -558,7 +682,16 @@ const bookData = [
     FavQuote: "",
     Why: "",
     What: "",
-    Fav: "No"
+    Fav: "Yes"
+  },
+  {
+    Title: "Positive Intelligence",
+    Author: "Shirzad Chamine",
+    Genre: "Psychology – Self Help",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
   },
   {
     Title: "Predictably Irrational",
@@ -577,6 +710,33 @@ const bookData = [
     Why: "",
     What: "",
     Fav: "No"
+  },
+  {
+    Title: "Punished by Rewards",
+    Author: "Alfie Kohn",
+    Genre: "Psychology – Pedagogy",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
+  },
+  {
+    Title: "Radical Focus",
+    Author: "Christina Wodtke",
+    Genre: "Business – Management",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Rational Optimist",
+    Author: "Matt Ridley",
+    Genre: "Economics – History – Science – Business – Philosophy",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
   },
   {
     Title: "Rework",
@@ -616,6 +776,15 @@ const bookData = [
     Fav: "No"
   },
   {
+    Title: "Scramble",
+    Author: "Marty Neumeier",
+    Genre: "Business – Fiction",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "Sentimental Education",
     Author: "Gustave Flaubert",
     Genre: "Fiction – Classics",
@@ -628,6 +797,15 @@ const bookData = [
     Title: "Shape Up",
     Author: "Ryan Singer",
     Genre: "Business – Management – Design",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Soumission",
+    Author: "Michel Houellebecq",
+    Genre: "Fiction",
     FavQuote: "",
     Why: "",
     What: "",
@@ -668,6 +846,15 @@ const bookData = [
     Why: "",
     What: "",
     Fav: "No"
+  },
+  {
+    Title: "Talent is Overrated",
+    Author: "Geoff Colvin",
+    Genre: "Business – Psychology – Self Help",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
   },
   {
     Title: "Talking to Strangers",
@@ -717,6 +904,15 @@ const bookData = [
     Fav: "No"
   },
   {
+    Title: "The Achievement Habit",
+    Author: "Bernard Roth",
+    Genre: "Self Help",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "The adventures of Tom Sawyer",
     Author: "Mark Twain",
     Genre: "Classic – Fiction – Comedy",
@@ -729,6 +925,15 @@ const bookData = [
     Title: "The Algebra of Hapiness",
     Author: "Scott Galloway",
     Genre: "Self Help",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "The Art of Innovation",
+    Author: "Tom Kelley, Jonathan Littman",
+    Genre: "Business – Design",
     FavQuote: "",
     Why: "",
     What: "",
@@ -789,15 +994,6 @@ const bookData = [
     Fav: "No"
   },
   {
-    Title: "The Complete Essays",
-    Author: "Michel de Montaigne",
-    Genre: "Philosophy – Essays – Classics",
-    FavQuote: "",
-    Why: "",
-    What: "",
-    Fav: "No"
-  },
-  {
     Title: "The Design of Everyday Things",
     Author: "Donald A. Norman",
     Genre: "Design",
@@ -814,6 +1010,15 @@ const bookData = [
     Why: "",
     What: "",
     Fav: "No"
+  },
+  {
+    Title: "The Evolution of Everything",
+    Author: "Matt Ridley",
+    Genre: "Science – History – Philosophy – Economics – Biology – Business",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
   },
   {
     Title: "The Examined Life",
@@ -885,6 +1090,24 @@ const bookData = [
     Title: "The Hard Thing About Hard Things",
     Author: "Ben Horowitz",
     Genre: "Business – Leadership",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "The Infinite Game",
+    Author: "Simon Sinek",
+    Genre: "Business – Leadership",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "The Innovator's Solution",
+    Author: "Clayton M. Christensen, Michael E. Raynor",
+    Genre: "Business",
     FavQuote: "",
     Why: "",
     What: "",
@@ -989,7 +1212,7 @@ const bookData = [
     FavQuote: "",
     Why: "",
     What: "",
-    Fav: "No"
+    Fav: "Yes"
   },
   {
     Title: "The Start-Up of You",
@@ -1026,6 +1249,15 @@ const bookData = [
     Why: "",
     What: "",
     Fav: "No"
+  },
+  {
+    Title: "The Ten Faces of Innovation",
+    Author: "Tom Kelley, Jonathan Littman",
+    Genre: "Business – Design",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "Yes"
   },
   {
     Title: "The Unfair Advantage",
@@ -1091,6 +1323,15 @@ const bookData = [
     Fav: "Yes"
   },
   {
+    Title: "Traction",
+    Author: "Gino Wickman",
+    Genre: "Business",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "Turning Pro",
     Author: "Steven Pressfield",
     Genre: "Business – Self Help",
@@ -1115,6 +1356,15 @@ const bookData = [
     FavQuote: "",
     Why: "",
     What: "",
+    Fav: "Yes"
+  },
+  {
+    Title: "What I Wish I Knew When I Was 20",
+    Author: "Tina Seelig",
+    Genre: "Self Help – Business",
+    FavQuote: "",
+    Why: "",
+    What: "",
     Fav: "No"
   },
   {
@@ -1136,6 +1386,24 @@ const bookData = [
     Fav: "No"
   },
   {
+    Title: "Why We Do What We Do",
+    Author: "Edward L. Deci, Richard Flaste",
+    Genre: "Psychology",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Working in Public",
+    Author: "Nadia Eghbal",
+    Genre: "Technology – Economics – Business",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
     Title: "Writing Tools",
     Author: "Roy Peter Clark",
     Genre: "Writing",
@@ -1143,6 +1411,24 @@ const bookData = [
     Why: "",
     What: "",
     Fav: "Yes"
+  },
+  {
+    Title: "Writing, Rhetoric, and the Art of Persuasion",
+    Author: "Michael D.C. Drout",
+    Genre: "Linguistics – Writing",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
+  },
+  {
+    Title: "Zag",
+    Author: "Marty Neumeier",
+    Genre: "Business – Design",
+    FavQuote: "",
+    Why: "",
+    What: "",
+    Fav: "No"
   },
   {
     Title: "Zero to One",
@@ -1154,9 +1440,9 @@ const bookData = [
     Fav: "No"
   },
   {
-    Title: "Kim",
-    Author: "Rudyard Kipling",
-    Genre: "Classics – fiction",
+    Title: "Weird Ideas That Work",
+    Author: "Robert I. Sutton",
+    Genre: "Business",
     FavQuote: "",
     Why: "",
     What: "",
