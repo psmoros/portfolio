@@ -96,7 +96,7 @@
 }
 .beliefs-row {
   color: black;
-  margin-top: 59vh;
+  /* margin-top: 59vh; */
   padding-right: 5vw;
   padding-left: 5vw;
 }

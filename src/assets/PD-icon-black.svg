@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="196px" height="196px" viewBox="0 0 196 196" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>PD-icon-black</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-486.000000, -290.000000)">
+            <g id="PD-icon-black" transform="translate(486.000000, 290.000000)">
+                <circle id="circle-border" fill="#FFFFFF" cx="98" cy="98" r="98"></circle>
+                <circle id="circle-inside" fill="#000000" cx="98" cy="98" r="78"></circle>
+                <circle id="c-border" fill="#FFFFFF" cx="98" cy="98" r="55"></circle>
+                <circle id="c-inside" fill="#000000" cx="98" cy="98" r="30"></circle>
+                <rect id="c-cut" fill="#000000" x="123" y="85" width="31" height="25"></rect>
+                <rect id="bar-margin" fill="#000000" transform="translate(97.580736, 98.339574) rotate(45.000000) translate(-97.580736, -98.339574) " x="82.0807358" y="36.8395744" width="31" height="123"></rect>
+                <rect id="bar" fill="#FFFFFF" transform="translate(97.580736, 98.096934) rotate(45.000000) translate(-97.580736, -98.096934) " x="85.0807358" y="10.5969337" width="25" height="175"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

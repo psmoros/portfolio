@@ -9,6 +9,7 @@ import Books from "./components/Books/BookContainer";
 import "bootstrap/dist/js/bootstrap.min.js";
 
 import BootstrapVue from "bootstrap-vue";
+import VueGtag from "vue-gtag";
 
 import SmoothReflow from "./components/SmoothReflow";
 
@@ -19,6 +20,13 @@ Vue.use(BootstrapVue);
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
+
+import { VueMailchimpEmailSignupForm } from "vue-mailchimp-email-signup-form";
+Vue.component("vue-mailchimp-email-signup-form", VueMailchimpEmailSignupForm);
+
+Vue.use(VueGtag, {
+  config: { id: "G-33FYSXW31H" }
+});
 
 const routes = [
   {
